@@ -114,7 +114,7 @@ exports.sendotp = async (req, res) => {
 
 		const checkUserPresent = await User.findOne({ email });
 		
-		if (checkUserPresent) {
+		if (checkUserPresent) {false
 			return res.status(401).json({
 				success: false,
 				message: `User is Already Registered`,
