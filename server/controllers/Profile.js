@@ -2,6 +2,7 @@ const Profile = require("../models/Profile");
 const User = require("../models/User");
 const Course = require("../models/Course");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
+const { getRandomColors } = require("../utils/randomColor");
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
 	try {
@@ -17,8 +18,9 @@ exports.updateProfile = async (req, res) => {
 		userDetails.lastName = lastName || userDetails.lastName;
 		profile.dateOfBirth = dateOfBirth || profile.dateOfBirth;
 		profile.about = about || profile.about;
-		profile.gender=gender || profile.gender;
+		profile.gender = gender || profile.gender;
 		profile.contactNumber = contactNumber || profile.contactNumber;
+		userDetails.image = `https://api.dicebear.com/6.x/initials/svg?seed=${firstName}%20${lastName}&backgroundColor=${getRandomColors()}&backgroundType=gradientLinear&backgroundRotation=${Math.floor(Math.random() * 360)}&fontFamily=Arial&fontWeight=600`;
 
 		// Save the updated profile
 		await profile.save();

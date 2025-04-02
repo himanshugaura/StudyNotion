@@ -12,12 +12,12 @@ const {
 const { isDemo } = require("../middlewares/demo");
 
 // Delet User Account
-router.delete("/deleteProfile",auth,isDemo,deleteAccount)
-router.put("/updateProfile", auth,isDemo, updateProfile)
+router.delete("/deleteProfile",auth, deleteAccount)
+router.put("/updateProfile", auth , updateProfile)
 router.get("/getUserDetails", auth, getAllUserDetails)
 
 router.get("/getEnrolledCourses", auth, getEnrolledCourses)
-router.put("/updateDisplayPicture", auth,isDemo, updateDisplayPicture)
+router.put("/updateDisplayPicture", auth,updateDisplayPicture)
 
 router.get("/getInstructorDashboardDetails",auth,isInstructor, instructorDashboard)
 
