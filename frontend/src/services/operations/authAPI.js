@@ -99,6 +99,9 @@ export function login(email, password, navigate) {
         password,
       })
 
+      
+      
+
       console.log("LOGIN API RESPONSE............", response)
 
       if (!response.data.success) {
@@ -119,6 +122,7 @@ export function login(email, password, navigate) {
       navigate("/dashboard/my-profile")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)
+      console.log(LOGIN_API);
       toast.error(error.response.data.message)
     }
     dispatch(setLoading(false))
